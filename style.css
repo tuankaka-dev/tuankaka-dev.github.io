@@ -9,7 +9,7 @@ body {
 }
 
 .card {
-    background-color: #fff;
+    background: linear-gradient(145deg, #ffffff, #f7f7f7);
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.2);
