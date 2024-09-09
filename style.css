@@ -13,16 +13,11 @@ body {
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    width: 520px;
-    max-width: 100%;
+    width: 90%;
+    max-width: 400px; /* Tối đa chiều rộng */
     text-align: center;
     border: 2px solid #ddd;
-}
-
-.header {
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 15px;
-    margin-bottom: 20px;
+    box-sizing: border-box; /* Đảm bảo padding và border không làm thay đổi kích thước tổng thể */
 }
 
 .header img.avatar {
@@ -32,6 +27,14 @@ body {
     border: 3px solid #007bff;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
+
+
+.header {
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
 
 .header h2 {
     font-size: 1.5em;
