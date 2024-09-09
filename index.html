@@ -3,248 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="/styles.css">
+    <title>Profile Card</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <div class="container">
-                <h1>My Portfolio</h1>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="hero">
-        <div class="container">
-            <h2>Hello, I'm [Your Name]</h2>
-            <p>I'm a Web Developer with a passion for creating beautiful and functional web applications.</p>
-            <a href="#contact" class="btn">Get in Touch</a>
+    <div class="card">
+        <div class="header">
+            <img class="avatar" src="path/to/your-image.jpg" alt="Profile Picture">
+            <h2>Nguyễn Lê Nhật Huy</h2>
+            <p>_nhathyy_</p>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <img src="images/profile.jpg" alt="Profile Picture">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla vel condimentum bibendum, dolor erat efficitur dolor, vel posuere nulla nisl id lorem.</p>
+        <div class="contact">
+            <h3>Contact</h3>
+            <div class="icons">
+                <a href="tel:+123456789"><img src="phone-icon.png" alt="Phone"></a>
+                <a href="mailto:example@mail.com"><img src="email-icon.png" alt="Email"></a>
             </div>
         </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2>My Projects</h2>
-            <div class="project-gallery">
-                <div class="project-item">
-                    <img src="images/project1.jpg" alt="Project 1">
-                    <h3>Project 1</h3>
-                    <p>Description of project 1.</p>
-                </div>
-                <div class="project-item">
-                    <img src="images/project2.jpg" alt="Project 2">
-                    <h3>Project 2</h3>
-                    <p>Description of project 2.</p>
-                </div>
-                <div class="project-item">
-                    <img src="images/project3.jpg" alt="Project 3">
-                    <h3>Project 3</h3>
-                    <p>Description of project 3.</p>
-                </div>
+        <div class="social">
+            <h3>Social</h3>
+            <div class="icons">
+                <a href="https://facebook.com/"><img src="facebook-icon.png" alt="Facebook"></a>
+                <a href="https://discord.com/"><img src="discord-icon.png" alt="Discord"></a>
+                <a href="https://github.com/tuankaka1511"><img src="github-icon.png" alt="GitHub"></a>
+                <a href="https://instagram.com/"><img src="instagram-icon.png" alt="Instagram"></a>
             </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 [Your Name]. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+    </div>
 </body>
-    <style>
-        /* Reset CSS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-}
-
-/* Header */
-header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-}
-
-nav .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav h1 {
-    font-size: 2rem;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-}
-
-nav ul li {
-    margin-left: 1rem;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-/* Hero Section */
-#hero {
-    background: #444;
-    color: #fff;
-    text-align: center;
-    padding: 4rem 1rem;
-}
-
-#hero h2 {
-    font-size: 2.5rem;
-}
-
-#hero p {
-    font-size: 1.2rem;
-}
-
-.btn {
-    background: #007BFF;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    border-radius: 0.25rem;
-}
-
-/* About Section */
-#about {
-    padding: 2rem 1rem;
-}
-
-.about-content {
-    display: flex;
-    align-items: center;
-}
-
-.about-content img {
-    border-radius: 50%;
-    margin-right: 1rem;
-    width: 150px;
-    height: 150px;
-}
-
-/* Projects Section */
-#projects {
-    background: #f4f4f4;
-    padding: 2rem 1rem;
-}
-
-.project-gallery {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.project-item {
-    flex: 1;
-    margin: 1rem;
-    text-align: center;
-}
-
-.project-item img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 0.5rem;
-}
-
-.project-item h3 {
-    margin: 0.5rem 0;
-}
-
-/* Contact Section */
-#contact {
-    padding: 2rem 1rem;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-form label {
-    margin: 0.5rem 0 0.25rem;
-}
-
-form input, form textarea {
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
-}
-
-form button {
-    padding: 0.75rem;
-    background: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
-}
-
-form button:hover {
-    background: #218838;
-}
-
-/* Footer */
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-}
-    </style>
 </html>
