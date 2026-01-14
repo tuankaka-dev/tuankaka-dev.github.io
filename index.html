@@ -1,42 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Card</title>
+    <meta name="description" content="Võ Nguyễn Thế Tuấn - Personal Portfolio & Link-in-Bio">
+    <title>Võ Nguyễn Thế Tuấn | Profile</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="github-icon.png" type="image/png">
+    <link rel="icon" href="ava-ic.ico" type="image/x-icon">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="card">
-        <div class="header">
-            <img class="avatar" src="ava-ic.ico" alt="Profile Picture">
-            <h2>Võ Nguyễn Thế Tuấn</h2>
-            <p>    </p>
-        </div>
-        <div class="contact">
-            <h3>Contact</h3>
-            <div class="icons">
-                <a><img src="phone-icon.png" alt="Phone" onclick="phone()"></a>
-                <a><img src="email-icon.png" alt="Email" onclick="email()"></a>
-            </div>
-        </div>
-        <div class="social">
-            <h3>Social</h3>
-            <div class="icons">
-                <a href="https://www.facebook.com/profile.php?id=100076745397544"><img src="facebook-icon.png" alt="Facebook"></a>
-                <a href="https://github.com/tuankaka1511"><img src="github-icon.png" alt="GitHub"></a>
-            </div>
-        </div>
-    </div>
+    <main class="container">
+        <article class="card">
+            <!-- Avatar Section -->
+            <header class="card-header">
+                <div class="avatar-wrapper">
+                    <img class="avatar" src="ava-ic.ico" alt="Profile Picture of Võ Nguyễn Thế Tuấn">
+                </div>
+                <h1 class="name">Võ Nguyễn Thế Tuấn</h1>
+            </header>
+
+            <!-- Divider -->
+            <hr class="divider">
+
+            <!-- Contact Section -->
+            <section class="section">
+                <h2 class="section-title">Contact</h2>
+                <div class="icons-row">
+                    <a href="tel:+84379434884" class="icon-link phone" aria-label="Phone">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <a href="mailto:vonguyenthetuan@gmail.com" class="icon-link gmail" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Divider -->
+            <hr class="divider">
+
+            <!-- Social Section -->
+            <section class="section">
+                <h2 class="section-title">Social</h2>
+                <div class="icons-row">
+                    <a href="https://www.facebook.com/profile.php?id=100076745397544" target="_blank" rel="noopener noreferrer" class="icon-link facebook" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://github.com/tuankaka1511" target="_blank" rel="noopener noreferrer" class="icon-link github" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </section>
+        </article>
+    </main>
 </body>
-    <script>
-        function phone() {
-            alert('0379434884')
-        }
-        function email() {
-            alert('vonguyenthetuan@gmail.com')
-        }
-        
-    </script>
 </html>

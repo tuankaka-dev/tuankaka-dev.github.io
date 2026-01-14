@@ -1,81 +1,308 @@
+/* ============================================
+   Link-in-Bio Profile Card Styles
+   ============================================ */
+
+/* CSS Custom Properties */
+:root {
+    --bg-color: #bde0fe;
+    --card-bg: #ffffff;
+    --card-radius: 20px;
+    --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.12), 
+                   0 4px 16px rgba(0, 0, 0, 0.08);
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a4a68;
+    --accent-blue: #2563eb;
+    --divider-color: #e8e8e8;
+    --phone-color: #22c55e;
+    --gmail-color: #ea4335;
+    --facebook-color: #1877f2;
+    --github-color: #24292e;
+    --avatar-border: #2563eb;
+    --transition-speed: 0.3s;
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-color);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.card {
-    background: linear-gradient(145deg, #ffffff, #f7f7f7);
-    border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    width: 90%;
-    max-width: 400px; /* Tối đa chiều rộng */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main Container */
+.container {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card Styles */
+.card {
+    background: var(--card-bg);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    padding: 40px 32px;
+    width: 100%;
     text-align: center;
-    border: 2px solid #ddd;
-    box-sizing: border-box; /* Đảm bảo padding và border không làm thay đổi kích thước tổng thể */
+    animation: fadeInUp 0.6s ease-out;
 }
 
-.header img.avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid #007bff;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
+/* Header Section */
+.card-header {
+    margin-bottom: 24px;
+}
 
-.header {
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 15px;
+/* Avatar Styles */
+.avatar-wrapper {
+    display: inline-block;
+    position: relative;
     margin-bottom: 20px;
 }
 
-
-.header h2 {
-    font-size: 1.5em;
-    margin: 10px 0;
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--avatar-border);
+    object-fit: cover;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25);
+    transition: transform var(--transition-speed) ease, 
+                box-shadow var(--transition-speed) ease;
 }
 
-.header p {
-    color: #777;
-    font-size: 1em;
-    margin: 5px 0;
+.avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
 }
 
-.contact, .social {
-    margin-top: 20px;
+/* Name Styles */
+.name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin: 0;
 }
 
-h3 {
-    margin-bottom: 15px;
-    color: #007bff;
-    font-size: 1.2em;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 5px;
+/* Divider */
+.divider {
+    border: none;
+    height: 1px;
+    background: var(--divider-color);
+    margin: 24px 0;
 }
 
-.icons {
+/* Section Styles */
+.section {
+    margin: 0;
+}
+
+.section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+}
+
+/* Icons Row */
+.icons-row {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
-.icons a {
-    margin: 5px;
+/* Icon Link Base Styles */
+.icon-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.4rem;
+    transition: transform var(--transition-speed) ease,
+                box-shadow var(--transition-speed) ease,
+                background-color var(--transition-speed) ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.icons img {
-    width: 40px;
-    height: 40px;
-    transition: transform 0.3s, filter 0.3s;
+.icon-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
 }
 
-.icons img:hover {
-    transform: scale(1.1);
-    filter: brightness(1.2);
+.icon-link:hover {
+    transform: translateY(-4px) scale(1.08);
+}
+
+.icon-link:active {
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* Phone Icon */
+.icon-link.phone {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.35);
+}
+
+.icon-link.phone:hover {
+    box-shadow: 0 8px 20px rgba(34, 197, 94, 0.5);
+}
+
+/* Gmail Icon */
+.icon-link.gmail {
+    background: linear-gradient(135deg, #ea4335 0%, #dc2626 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(234, 67, 53, 0.35);
+}
+
+.icon-link.gmail:hover {
+    box-shadow: 0 8px 20px rgba(234, 67, 53, 0.5);
+}
+
+/* Facebook Icon */
+.icon-link.facebook {
+    background: linear-gradient(135deg, #1877f2 0%, #1565d8 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.35);
+}
+
+.icon-link.facebook:hover {
+    box-shadow: 0 8px 20px rgba(24, 119, 242, 0.5);
+}
+
+/* GitHub Icon */
+.icon-link.github {
+    background: linear-gradient(135deg, #24292e 0%, #1a1e22 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(36, 41, 46, 0.35);
+}
+
+.icon-link.github:hover {
+    box-shadow: 0 8px 20px rgba(36, 41, 46, 0.5);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+/* Small Mobile Devices */
+@media (max-width: 375px) {
+    html {
+        font-size: 14px;
+    }
+
+    .card {
+        padding: 32px 24px;
+    }
+
+    .avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .icon-link {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Tablet and larger */
+@media (min-width: 768px) {
+    .card {
+        padding: 48px 40px;
+    }
+
+    .avatar {
+        width: 140px;
+        height: 140px;
+    }
+
+    .name {
+        font-size: 2rem;
+    }
+
+    .icon-link {
+        width: 64px;
+        height: 64px;
+        font-size: 1.6rem;
+    }
+
+    .icons-row {
+        gap: 28px;
+    }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .card {
+        animation: none;
+    }
+
+    .avatar,
+    .icon-link {
+        transition: none;
+    }
+}
+
+/* Focus Styles for Accessibility */
+.icon-link:focus {
+    outline: 3px solid var(--accent-blue);
+    outline-offset: 4px;
+}
+
+.icon-link:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.icon-link:focus-visible {
+    outline: 3px solid var(--accent-blue);
+    outline-offset: 4px;
 }
