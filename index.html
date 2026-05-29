@@ -4,64 +4,356 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Võ Nguyễn Thế Tuấn - Personal Portfolio & Link-in-Bio">
-    <title>Profile Card</title>
-    <link rel="stylesheet" href="/style.css">
-    <link rel="icon" href="/ava-ic.ico" type="image/x-icon">
-    <!-- Font Awesome for icons -->
+    <meta name="description"
+        content="Võ Nguyễn Thế Tuấn — Hardware Engineer & IoT/Embedded Systems Developer at DUT. View my portfolio, projects, and contact me.">
+    <meta name="keywords"
+        content="Võ Nguyễn Thế Tuấn, portfolio, student, DUT, Da Nang, hardware engineer, IoT, embedded systems">
+    <meta name="author" content="Võ Nguyễn Thế Tuấn">
+    <meta property="og:title" content="Võ Nguyễn Thế Tuấn — Portfolio">
+    <meta property="og:description"
+        content="Hardware Engineer & IoT/Embedded Systems Developer. Da Nang University of Science and Technology.">
+    <meta property="og:type" content="website">
+    <title>Võ Nguyễn Thế Tuấn — Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="ava-ic.ico" type="image/x-icon">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <main class="container">
-        <article class="card">
-            <!-- Avatar Section -->
-            <header class="card-header">
-                <div class="avatar-wrapper">
-                    <img class="avatar" src="/ava-ic.ico" alt="Profile Picture of Võ Nguyễn Thế Tuấn">
+    <!-- ====== CURSOR GLOW ====== -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- ====== PARTICLES BACKGROUND ====== -->
+    <canvas id="particlesCanvas"></canvas>
+
+    <!-- ====== NAVIGATION ====== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">Portfolio</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" class="nav-link active" data-section="hero">Home</a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+                <li><a href="#about" class="nav-link" data-section="about">About & Skills</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon" id="themeIcon"></i>
+            </button>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- ====== HERO SECTION ====== -->
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <div class="hero-avatar animate-on-scroll">
+                    <div class="avatar-container">
+                        <img src="face.jpg" alt="Võ Nguyễn Thế Tuấn — Profile Photo" class="avatar-img">
+                    </div>
+                    <div class="avatar-badge">
+                        <span class="badge-dot"></span>
+                        <span>Available for opportunities</span>
+                    </div>
+                    <div class="hero-cta animate-on-scroll">
+                        <a href="#projects" class="btn btn-primary" id="btn-view-projects">
+                            <span>View Projects</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-outline" id="btn-contact-me">
+                            <span>Contact Me</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </a>
+                    </div>
+                    <div class="hero-social animate-on-scroll">
+                        <a href="https://github.com/tuankaka-dev" target="_blank" rel="noopener noreferrer"
+                            class="social-icon" aria-label="GitHub" id="social-github">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=100076745397544" target="_blank"
+                            rel="noopener noreferrer" class="social-icon" aria-label="Facebook" id="social-facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="mailto:vonguyenthetuan@gmail.com" class="social-icon" aria-label="Email"
+                            id="social-email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="tel:+84379434884" class="social-icon" aria-label="Phone" id="social-phone">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                    </div>
                 </div>
-                <h1 class="name">Võ Nguyễn Thế Tuấn</h1>
-            </header>
-
-            <!-- Divider -->
-            <hr class="divider">
-
-            <!-- Contact Section -->
-            <section class="section">
-                <h2 class="section-title">Contact</h2>
-                <div class="icons-row">
-                    <a href="tel:+84379434884" class="icon-link phone" aria-label="Phone">
-                        <i class="fas fa-phone"></i>
-                    </a>
-                    <a href="mailto:vonguyenthetuan@gmail.com" class="icon-link gmail" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+                <div class="hero-text">
+                    <p class="hero-greeting animate-on-scroll">Hello, I'm</p>
+                    <h1 class="hero-name animate-on-scroll">
+                        Võ Nguyễn<br>
+                        <span class="gradient-text">Thế Tuấn</span>
+                    </h1>
+                    <div class="hero-typewriter animate-on-scroll">
+                        <span class="typewriter-prefix">I'm a </span>
+                        <span class="typewriter-text" id="typewriter"></span>
+                        <span class="typewriter-cursor">|</span>
+                    </div>
+                    <p class="hero-description animate-on-scroll">
+                        Undergraduate Engineering Student at <strong>Da Nang University of Science &
+                            Technology</strong>.
+                        Passionate about embedded systems, IoT solutions, and bridging the gap between hardware and
+                        software.
+                    </p>
                 </div>
-            </section>
-
-            <!-- Divider -->
-            <hr class="divider">
-
-            <!-- Social Section -->
-            <section class="section">
-                <h2 class="section-title">Social</h2>
-                <div class="icons-row">
-                    <a href="https://www.facebook.com/profile.php?id=100076745397544" target="_blank"
-                        rel="noopener noreferrer" class="icon-link facebook" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://github.com/tuankaka-dev" target="_blank" rel="noopener noreferrer"
-                        class="icon-link github" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
+            </div>
+            <div class="scroll-indicator" id="scrollIndicator">
+                <span>Scroll down</span>
+                <div class="scroll-arrow">
+                    <i class="fas fa-chevron-down"></i>
                 </div>
-            </section>
-        </article>
+            </div>
+        </section>
+
+        <!-- ====== PROJECTS SECTION ====== -->
+        <section class="section projects" id="projects">
+            <div class="section-container">
+                <div class="section-header animate-on-scroll">
+                    <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+                    <p class="section-subtitle">Some things I've built recently</p>
+                </div>
+                <div class="projects-grid">
+                    <article class="project-card animate-on-scroll" id="project-iot-air">
+                        <div class="project-card-header">
+                            <div class="project-icon">
+                                <i class="fas fa-smog"></i>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" onclick="alert('Update soon'); return false;" class="project-link-icon"
+                                    aria-label="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/tuankaka-dev/lora-esp32-air-monitor" target="_blank"
+                                    rel="noopener noreferrer" class="project-link-icon" aria-label="Source Code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">IoT Air Quality Monitoring System</h3>
+                        <p class="project-desc">An IoT air quality monitoring system based on Master–Slave architecture
+                            with ESP32 nodes communicating via LoRa SX1278. The Master actively polls the Slave using a
+                            request/response protocol with CRC8 validation to ensure data integrity. Both nodes run
+                            FreeRTOS for multitasking and TinyML for on-edge environment classification. The Master
+                            aggregates data and pushes it to Supabase. A Next.js dashboard displays real-time data,
+                            renders heatmaps using IDW interpolation, and provides historical charts with AQI gauges.
+                            Custom PCB designed for sensor integration.</p>
+                        <div class="project-tags">
+                            <span>ESP32</span>
+                            <span>LoRa</span>
+                            <span>FreeRTOS</span>
+                            <span>TinyML</span>
+                            <span>PCB Design</span>
+                            <span>Supabase</span>
+                            <span>Next.js</span>
+                        </div>
+                    </article>
+                    <article class="project-card animate-on-scroll" id="project-robot">
+                        <div class="project-card-header">
+                            <div class="project-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" onclick="alert('Update soon'); return false;" class="project-link-icon"
+                                    aria-label="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/tuankaka-dev/3D-printed-line-following" target="_blank"
+                                    rel="noopener noreferrer" class="project-link-icon" aria-label="Source Code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Arduino Line Following Robot</h3>
+                        <p class="project-desc">An autonomous line-following robot powered by Arduino with a PID control
+                            algorithm for precise speed and steering. The chassis is custom-designed and 3D-printed,
+                            with a self-designed PCB layout for the control board. Features an IR sensor array and motor
+                            driver for smooth, high-speed line tracking.</p>
+                        <div class="project-tags">
+                            <span>Arduino</span>
+                            <span>PID</span>
+                            <span>3D Print</span>
+                            <span>PCB Design</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== ABOUT & SKILLS SECTION (merged) ====== -->
+        <section class="section about" id="about">
+            <div class="section-container">
+                <div class="section-header animate-on-scroll">
+                    <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+                    <p class="section-subtitle">Get to know me & my skills</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text animate-on-scroll">
+                        <p>
+                            I'm a motivated and curious <strong>Engineering undergraduate</strong> at
+                            <strong>Da Nang University of Science and Technology (DUT)</strong>, based in
+                            Da Nang, Vietnam. My journey in technology began with a deep fascination for
+                            how hardware and electronics power the modern world.
+                        </p>
+                        <p>
+                            I specialize in <strong>embedded systems</strong> and <strong>IoT development</strong> —
+                            designing firmware for microcontrollers, building sensor-driven solutions, creating custom
+                            PCB layouts, and developing smart devices that bridge the physical and digital worlds.
+                            I'm experienced with platforms like <strong>MCU (ESP32, Arduino, STM32)</strong>,
+                            <strong>FPGA</strong>,
+                            and <strong>RASPBERRY PI</strong>, and I work with real-time operating systems like
+                            freeRTOS to build reliable, multitasking embedded applications.
+                        </p>
+                        <p>
+                            My long-term vision is to become a <strong>Hardware Engineer</strong> and an expert
+                            in embedded systems and IoT architecture. I aspire to work at <strong>multinational
+                                technology companies</strong> where I can contribute to cutting-edge products,
+                            collaborate with world-class engineering teams, and push the boundaries of what
+                            connected hardware can achieve.
+                        </p>
+                        <p>
+                            I believe that the future lies at the intersection of intelligent hardware and
+                            software — and I'm committed to becoming a specialist who can design, prototype,
+                            and deliver production-ready embedded solutions. Whether it's optimizing low-power
+                            sensor networks, deploying TinyML models at the edge, or engineering robust
+                            communication protocols, I'm always eager to take on new challenges and grow.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Skills integrated below About -->
+                <div class="skills-section-inner">
+                    <div class="section-header animate-on-scroll" style="margin-top:60px;">
+                        <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+                        <p class="section-subtitle">Technologies & tools I work with</p>
+                    </div>
+                    <div class="tech-tags animate-on-scroll">
+                        <span class="tech-tag"><i class="fas fa-code"></i> C/C++</span>
+                        <span class="tech-tag"><i class="fas fa-microchip"></i> MCU</span>
+                        <span class="tech-tag"><i class="fas fa-exchange-alt"></i> SPI / I2C / UART</span>
+                        <span class="tech-tag"><i class="fas fa-drafting-compass"></i> PCB Design</span>
+                        <span class="tech-tag"><i class="fas fa-drafting-compass"></i> Altium Designer</span>
+                        <span class="tech-tag"><i class="fas fa-brain"></i> TinyML</span>
+                        <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                        <span class="tech-tag"><i class="fab fa-git-alt"></i> Git & GitHub</span>
+                        <span class="tech-tag"><i class="fab fa-linux"></i> Linux</span>
+                        <span class="tech-tag"><i class="fas fa-wave-square"></i> Oscilloscope</span>
+                        <span class="tech-tag"><i class="fas fa-fire"></i> Soldering</span>
+                        <span class="tech-tag"><i class="fas fa-cube"></i> 3D Printing</span>
+                        <span class="tech-tag"><i class="fas fa-database"></i>Website Developer</span>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== CONTACT SECTION ====== -->
+        <section class="section contact" id="contact">
+            <div class="section-container">
+                <div class="section-header animate-on-scroll">
+                    <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+                    <p class="section-subtitle">I'd love to hear from you — let's connect!</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info animate-on-scroll">
+                        <div class="contact-item" id="contact-email">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:vonguyenthetuan@gmail.com">vonguyenthetuan@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item" id="contact-phone">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <a href="tel:+84379434884">+84 379 434 884</a>
+                            </div>
+                        </div>
+                        <div class="contact-item" id="contact-location">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Da Nang, Vietnam</p>
+                            </div>
+                        </div>
+                        <div class="contact-socials">
+                            <a href="https://github.com/tuankaka-dev" target="_blank" rel="noopener noreferrer"
+                                class="contact-social-link" aria-label="GitHub" id="contact-github">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=100076745397544" target="_blank"
+                                rel="noopener noreferrer" class="contact-social-link" aria-label="Facebook"
+                                id="contact-facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <form class="contact-form animate-on-scroll" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="formName" name="name" placeholder=" " required>
+                            <label for="formName">Your Name</label>
+                            <span class="form-line"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="formEmail" name="email" placeholder=" " required>
+                            <label for="formEmail">Your Email</label>
+                            <span class="form-line"></span>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="formMessage" name="message" rows="4" placeholder=" " required></textarea>
+                            <label for="formMessage">Your Message</label>
+                            <span class="form-line"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit" id="btn-send-message">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="footer-text">
+                Designed & built by <strong>Võ Nguyễn Thế Tuấn</strong>
+            </p>
+            <p class="footer-copyright">
+                &copy; <span id="footerYear"></span> All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ====== BACK TO TOP ====== -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
