@@ -148,16 +148,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ---- Contact form (demo) ----
+    // ---- Contact form (EmailJS) ----
     const form = document.getElementById('contactForm');
     if (form) {
+        // Initialize EmailJS with public key only (never use private key in client code)
+        emailjs.init('mt_-ZBR6eaIEuZz7h');
+
         form.addEventListener('submit', e => {
             e.preventDefault();
-            const btn = form.querySelector('.btn-submit span');
-            const origText = btn.textContent;
-            btn.textContent = 'Sent! ✓';
-            form.reset();
-            setTimeout(() => { btn.textContent = origText; }, 2500);
+            const btn = form.querySelector('.btn-submit');
+            const btnText = btn.querySelector('span');
+            const btnIcon = btn.querySelector('i');
+            const origText = btnText.textContent;
+            const origIcon = btnIcon.className;
+
+            // Disable button & show loading state
+            btn.disabled = true;
+            btnText.textContent = 'Sending...';
+            btnIcon.className = 'fas fa-spinner fa-spin';
+
+            emailjs.sendForm('service_2pwb8r1', 'template_or7bw4i', form)
+                .then(() => {
+                    btnText.textContent = 'Sent! ✓';
+                    btnIcon.className = 'fas fa-check';
+                    btn.classList.add('success');
+                    form.reset();
+                    setTimeout(() => {
+                        btnText.textContent = origText;
+                        btnIcon.className = origIcon;
+                        btn.disabled = false;
+                        btn.classList.remove('success');
+                    }, 3000);
+                })
+                .catch((error) => {
+                    console.error('EmailJS Error:', error);
+                    btnText.textContent = 'Failed ✗';
+                    btnIcon.className = 'fas fa-exclamation-triangle';
+                    btn.classList.add('error');
+                    setTimeout(() => {
+                        btnText.textContent = origText;
+                        btnIcon.className = origIcon;
+                        btn.disabled = false;
+                        btn.classList.remove('error');
+                    }, 3000);
+                });
         });
     }
 
